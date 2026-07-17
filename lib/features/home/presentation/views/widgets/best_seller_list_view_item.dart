@@ -49,7 +49,7 @@ class BestSellerListViewItem extends StatelessWidget {
                   const Text('J.K. Rowling', style: Styles.textStyle14),
                   const SizedBox(height: 3),
                   Row(
-                    children: const[
+                    children: const [
                       Text('19.99€', style: Styles.textStyle20),
                       Spacer(),
                       BookRating(),
@@ -64,4 +64,3 @@ class BestSellerListViewItem extends StatelessWidget {
     );
   }
 }
-
