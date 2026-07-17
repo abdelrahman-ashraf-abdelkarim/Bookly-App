@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_action.dart';
 import 'custom_book_details_app_bar.dart';
+import 'similar_book_list_view.dart';
 
 class BookDetalisViewBody extends StatelessWidget {
   const BookDetalisViewBody({super.key});
@@ -18,7 +19,7 @@ class BookDetalisViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const CustomBookDetailsAppBar(),
-          const SizedBox(height: 40),
+
           Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.19),
             child: const CustomBookImage(),
@@ -45,6 +46,17 @@ class BookDetalisViewBody extends StatelessWidget {
           const BookRating(mainAxisAlignment: MainAxisAlignment.center),
           const SizedBox(height: 37),
           const BooksAction(),
+          const SizedBox(height: 50),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "You can also like",
+              style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          const SizedBox(height: 16),
+          SimilarBooksListView(),
+          const SizedBox(height: 40),
         ],
       ),
     );
