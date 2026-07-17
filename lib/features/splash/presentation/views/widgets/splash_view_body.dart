@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/utils/assets.dart';
@@ -64,7 +65,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       //   transition: Transition.fade,
       //   duration: kTransitionDuration,
       // );
-      GoRouter.of(context).push('/homeView');
+      GoRouter.of(context).push(AppRoute.kHomeView);
     });
   }
 }
