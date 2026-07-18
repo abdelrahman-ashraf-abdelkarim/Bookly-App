@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_route.dart';
 import '../../../../../core/utils/assets.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
@@ -15,8 +17,10 @@ class CustomHomeAppBar extends StatelessWidget {
         children: [
           Image.asset(AssetsData.logo, scale: 3.5),
           IconButton(
-            onPressed: () {},
-            icon: const FaIcon(FontAwesomeIcons.magnifyingGlass),
+            onPressed: () {
+              GoRouter.of(context).push(AppRoute.kSearchView);
+            },
+            icon: const FaIcon(FontAwesomeIcons.magnifyingGlass, size: 22),
           ),
         ],
       ),
