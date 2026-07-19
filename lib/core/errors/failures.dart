@@ -35,10 +35,6 @@ class ServerFailure extends Failure {
           return ServerFailure('No internet connection');
         }
         return ServerFailure('Unexpected Error, Please try again!');
-      default:
-        return ServerFailure(
-          'Opps There was an Error, Please try again later!',
-        );
     }
   }
 
