@@ -18,6 +18,7 @@ dependencies:
   go_router: ^17.3.0
   equatable: ^2.1.0
   dartz: ^0.10.1
+  dio: ^5.10.0
 
 dev_dependencies:
   flutter_test:
