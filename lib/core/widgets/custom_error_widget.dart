@@ -8,18 +8,6 @@ class CustomErrorWidget extends StatelessWidget {
   final String errMessage;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.red, width: 0.5),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.error, color: Colors.red),
-          const SizedBox(width: 10),
-          Expanded(child: Text(errMessage, style: Styles.textStyle18)),
-        ],
-      ),
-    );
+    return Center(child: Text(errMessage, style: Styles.textStyle18));
   }
 }
