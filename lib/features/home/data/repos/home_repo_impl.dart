@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bookly_app/core/errors/failures.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:dartz/dartz.dart';
@@ -14,19 +16,28 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(
         endPoint:
-            "volumes?filtering=free-ebooks&Sorting=newest&q=subject:Programming",
+            "volumes?filter=free-ebooks&orderBy=newest&q=subject:Computer Science",
       );
 
       List<BookModel> books = [];
       for (var item in data["items"]) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
       }
 
       return right(books);
     } catch (e) {
       if (e is DioException) {
+        log("First Request From Newest Books");
+        log("${e.response?.statusCode}");
+        log("${e.response?.statusMessage}");
+        log("${e.response?.data}");
         return left(ServerFailure.fromDioError(e));
       }
+      log("Not is Dio Exception From Newest Books");
       return left(ServerFailure(e.toString()));
     }
   }
@@ -35,19 +46,28 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: "volumes?filtering=free-ebooks&q=subject:Programming",
+        endPoint: "volumes?filter=free-ebooks&q=subject:Programming",
       );
 
       List<BookModel> books = [];
       for (var item in data["items"]) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
       }
 
       return right(books);
     } catch (e) {
       if (e is DioException) {
+        log("First Request From Featured Books");
+        log("${e.response?.statusCode}");
+        log("${e.response?.statusMessage}");
+        log("${e.response?.data}");
         return left(ServerFailure.fromDioError(e));
       }
+      log("Not is Dio Exception From Featured Books");
       return left(ServerFailure(e.toString()));
     }
   }
